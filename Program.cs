@@ -7,14 +7,15 @@ class Program{
     static void Main(string[] args)
     {
         
-        string connectionString = "Server=localhost;Database=DotNetCourseDatabase;Trusted_Connection=false;TrustServerCertificate=True;User Id=sa;Password=SQLConnect1;";
+        string connectionString = "Server=localhost;Database=Library;Trusted_Connection=false;TrustServerCertificate=True;User Id=sa;Password=SQLConnect1;";
 
         IDbConnection dbConnection = new SqlConnection(connectionString);
 
-        string sqlCommand = "SELECT GETTIME();";
+        string sqlCommand = "SELECT GETDATE()";
 
-        dbConnection.Query<DateTime>(sqlCommand);
+        DateTime date = dbConnection.QuerySingle<DateTime>(sqlCommand);
 
+        Console.WriteLine(date.ToString());
 
         Book [] books = {
             new Book("Harry Potter","J.K Rowling",19.99m,new DateTime(2005,04,23),GenreClass.Mystery), 
