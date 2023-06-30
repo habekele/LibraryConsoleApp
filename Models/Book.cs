@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,27 +8,33 @@ namespace LibraryConsoleApp.Models
 {
     public class Book
     {
-        string Title { get; set; } = "";
+        [Key]
+        public string Title { get; set; } = "";
 
-        string Author { get; set; } = "";
+        public string Author { get; set; } = "";
 
-        decimal Price { get; set; }
+        public decimal Price { get; set; }
 
-        DateTime Published { get; set; }
+        public DateTime PublishedDate { get; set; }
 
-        GenreClass Genre { get; set; }
+        public string? Genre { get; set; }
 
-        public Book(string Title, string Author, decimal Price, DateTime Published, GenreClass Genre)
+
+        public Book()
+        {
+            
+        }
+        public Book(string Title, string Author, decimal Price, DateTime PublishedDate, GenreClass Genre)
         {
             this.Title = Title;
             this.Author = Author;
             this.Price = Price;
-            this.Published = Published;
-            this.Genre = Genre;
+            this.PublishedDate = PublishedDate;
+            this.Genre = Genre.ToString();
         }
 
         public void PrintBook(){
-            Console.WriteLine("Title: {0}\n Author: {1}\n Price: {2}\n Published: {3}\n Genre: {4}", Title, Author, Price, Published, Genre);
+            Console.WriteLine("Title: {0}\n Author: {1}\n Price: {2}\n Published: {3}\n Genre: {4}", Title, Author, Price, PublishedDate, Genre);
             
         }
 

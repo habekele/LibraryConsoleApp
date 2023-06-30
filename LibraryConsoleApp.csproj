@@ -10,8 +10,8 @@
   <ItemGroup>
     <PackageReference Include="dapper" Version="2.0.143" />
     <PackageReference Include="microsoft.data.sqlclient" Version="5.1.1" />
-    <PackageReference Include="microsoft.EntityFrameworkcore" Version="7.0.8" />
-    <PackageReference Include="microsoft.EntityFrameworkcore.sqlserver" Version="7.0.8" />
+    <PackageReference Include="microsoft.entityframeworkcore" Version="7.0.8" />
+    <PackageReference Include="microsoft.entityframeworkcore.sqlserver" Version="7.0.8" />
   </ItemGroup>
 
 </Project>
