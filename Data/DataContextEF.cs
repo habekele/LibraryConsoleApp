@@ -8,6 +8,7 @@ namespace LibraryConsoleApp.Data{
         private string _connectionString = "Server=localhost;Database=Library;Trusted_Connection=false;TrustServerCertificate=True;User Id=sa;Password=SQLConnect1;";
 
         public DbSet<Book> ? Book {set; get;}
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)//connecting to database 
         {
             if(!optionsBuilder.IsConfigured)
@@ -17,7 +18,7 @@ namespace LibraryConsoleApp.Data{
             }
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder) //mapping each column to a property in the model
         {
             modelBuilder.Entity<Book>(entity => {
                 //entity.HasNoKey();
