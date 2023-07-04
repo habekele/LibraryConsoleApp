@@ -8,6 +8,7 @@ namespace LibraryConsoleApp.Data{
         private string _connectionString = "Server=localhost;Database=Library;Trusted_Connection=false;TrustServerCertificate=True;User Id=sa;Password=SQLConnect1;";
 
         public DbSet<Book> ? Book {set; get;}
+        public DbSet<Customer> ? Customer {set;get;}
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)//connecting to database 
         {
@@ -45,6 +46,22 @@ namespace LibraryConsoleApp.Data{
                 .HasColumnName("PublishedDate");
             });
 
+            modelBuilder.Entity<Customer>(entity => {
+                entity.ToTable("Customer");
+
+                entity.Property(e => e.FullName)
+                .IsRequired()
+                .HasColumnName("FullName");
+
+                entity.Property(e=>e.PhoneNumber)
+                .IsRequired()
+                .HasColumnName("PhoneNumber");
+
+                entity.Property(e => e.Email)
+                .IsRequired()
+                .HasColumnName("Email");
+
+            });
 
         }
 

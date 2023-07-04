@@ -20,6 +20,12 @@ class Program
             new Customer("Trualem Johnson", "605-777-0123", "trujohnson@hotmail.com")
         };
 
+        Order [] orders ={
+            new Order(customers[1],books[0],2),
+            new Order(customers[0],books[2],3)
+        };
+
+
 
 
         DataContextEF entityframework = new DataContextEF();
@@ -29,6 +35,15 @@ class Program
             entityframework.Add(book);
         }
         entityframework.SaveChanges();//save to database
+
+        foreach( Customer customer1 in customers)//add each book in books array to database using entity framework
+        {
+            entityframework.Add(customer1);
+        }
+        entityframework.SaveChanges();//save to database
+
+        
+
 
         IEnumerable<Book> ? bookEF = entityframework.Book?.ToList<Book>(); //create list of books items found on entityframework 
         if(bookEF != null){
@@ -42,10 +57,17 @@ class Program
             }
         }
 
-        foreach(Customer customer in customers)
-        {
-            customer.printCustomer();
-        }
+        
+
+        // foreach(Customer customer in customers)
+        // {
+        //     customer.printCustomer();
+        // }
+
+        // foreach(Order order in orders)
+        // {
+        //     order.PrintOrder();
+        // }
 
 
 
