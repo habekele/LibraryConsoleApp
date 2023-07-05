@@ -9,6 +9,7 @@ namespace LibraryConsoleApp.Models
     public class Book
     {
         [Key]
+        public int BookId {get; set;}
         public string Title { get; set; } = "";
 
         public string Author { get; set; } = "";
@@ -34,7 +35,7 @@ namespace LibraryConsoleApp.Models
         }
 
         public void PrintBook(){
-            Console.WriteLine("Title: {0}\n Author: {1}\n Price: {2}\n Published: {3}\n Genre: {4}", Title, Author, Price, PublishedDate, Genre);
+            Console.WriteLine("Book ID: {5}\nTitle: {0}\n Author: {1}\n Price: {2}\n Published: {3}\n Genre: {4}", Title, Author, Price, PublishedDate, Genre,BookId);
             
         }
 

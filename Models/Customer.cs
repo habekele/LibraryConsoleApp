@@ -9,6 +9,7 @@ namespace LibraryConsoleApp.Models
     public class Customer
     {   
         [Key]
+        public int CustomerId {get; set;}
         public string FullName {get; set;} = "";
 
         public string PhoneNumber {get; set;} = "";
@@ -33,6 +34,14 @@ namespace LibraryConsoleApp.Models
             Console.WriteLine("Phone Number: {0}",PhoneNumber);
             Console.WriteLine("Email: {0}\n",Email);
 
+        }
+
+        public Customer(Customer copy)
+        {
+            this.CustomerId= copy.CustomerId;
+            this.FullName = copy.FullName;
+            this.Email = copy.Email;
+            this.PhoneNumber = copy.PhoneNumber;
         }
 
 

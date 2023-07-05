@@ -24,6 +24,9 @@ namespace LibraryConsoleApp.Data{
             modelBuilder.Entity<Book>(entity => {
                 //entity.HasNoKey();
                 entity.ToTable("Book");
+
+                entity.Property(e=> e.BookId)
+                .HasColumnName("BookId");
                 
                 entity.Property(e => e.Title)
                 .IsRequired()
@@ -48,6 +51,9 @@ namespace LibraryConsoleApp.Data{
 
             modelBuilder.Entity<Customer>(entity => {
                 entity.ToTable("Customer");
+
+                entity.Property(e=> e.CustomerId)
+                .HasColumnName("CustomerId");
 
                 entity.Property(e => e.FullName)
                 .IsRequired()
